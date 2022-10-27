@@ -61,7 +61,7 @@ button i {
         width: 100%;
     }
 
-    .timer {
+    #timer {
         font-size: 3rem;
     }
 
@@ -79,7 +79,7 @@ button i {
         width: 100%;
     }
 
-    .timer {
+    #timer {
         font-size: 5rem;
     }
 
