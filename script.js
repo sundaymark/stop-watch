@@ -1,4 +1,4 @@
-const startStopbtn = document.querySelector('#startStopbtn');
+const startStopBtn = document.querySelector('.startStopbtn');
 const resetBtn = document.querySelector('#resetBtn');
 
 //variables for time value//
@@ -13,11 +13,11 @@ let leadingHours = 0;
 
 //variables for set intervals and timerstatus
 let timerInterval = null;
-let timerstatus = 'stopped';
+let timerStatus = 'stopped';
 
 
 //stopWatch function
-function stopWatch() {
+const stopWatch = () => {
 
     seconds++
 
@@ -50,31 +50,31 @@ function stopWatch() {
         leadingHours = hours
     }
 
-    let displayTimer = document.getElementById('timer').innerText =
+    document.querySelector('.timer').innerText =
         leadingHours + ':' + leadingMinutes + ':' + leadingSeconds;
 };
 
-startStopbtn.addEventListener('click', function () {
-    if (timerstatus === 'stopped') {
+startStopBtn.addEventListener('click', () => {
+    if (timerStatus === 'stopped') {
         timerInterval = window.setInterval(stopWatch, 1000);
-        document.getElementById('startStopbtn').innerHTML = `
+        document.querySelector('.startStopbtn').innerHTML = `
         <i class="fa-solid fa-pause" id="pause"></i>`;
-        timerstatus = 'started';
+        timerStatus = 'started';
     } else {
         window.clearInterval(timerInterval);
-        document.getElementById('startStopbtn').innerHTML = `
+        document.querySelector('.startStopbtn').innerHTML = `
         <i class="fa-solid fa-play" id="play"></i>`;
-        timerstatus = 'stopped';
+        timerStatus = 'stopped';
     }
 });
 
-resetBtn.addEventListener('click', function () {
+resetBtn.addEventListener('click', () => {
     window.clearInterval(timerInterval);
     seconds = 0;
     minutes = 0;
     hours = 0;
-    document.getElementById('timer').innerHTML = '00:00:00';
-    document.getElementById('startStopbtn').innerHTML = `
+    document.querySelector('.timer').innerHTML = '00:00:00';
+    document.querySelector('.startStopbtn').innerHTML = `
     <i class="fa-solid fa-play" id="play"></i>`;
-    timerstatus ='stopped';
+    timerStatus = 'stopped';
 })
